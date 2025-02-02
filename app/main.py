@@ -1,8 +1,8 @@
 class Animal:
     alive = []
 
-    def __str__() -> str:
-        return [{"Name": animal.name, "Health": animal.health, "Hidden": animal.hidden} for animal in Animal.alive]
+    def __str__(self) -> str:
+        return [{"Name": self.name, "Health": self.health, "Hidden": self.hidden} for animal in Animal.alive]
 
     def __init__(self, name: str, health: int = 100) -> None:
         self.name = name
@@ -11,15 +11,12 @@ class Animal:
         Animal.alive.append(self)
         print(f"{self.name}, total animals: {len(Animal.alive)}")
 
-        pass
-
     def getbitten(self) -> None:
         pass
 
     def __iter__(self):
         yield self.strings
         yield "something else"
-
 
 
 class Carnivore(Animal):
@@ -48,4 +45,3 @@ wolf = Carnivore("Azor")
 sheep = Carnivore("Beza")
 
 print(Animal.alive)
-print(Animal.__str__())
