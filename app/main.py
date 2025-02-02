@@ -39,9 +39,3 @@ class Herbivore(Animal):
             self.health -= 50
             if self.health <= 0:
                 Animal.alive.remove(self)
-
-
-wolf = Carnivore("Azor")
-sheep = Carnivore("Beza")
-
-print(Animal.alive)
