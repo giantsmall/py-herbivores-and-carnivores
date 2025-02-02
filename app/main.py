@@ -2,7 +2,9 @@ class Animal:
     alive = []
 
     def __str__(self) -> str:
-        return [{"Name": self.name, "Health": self.health, "Hidden": self.hidden} for animal in Animal.alive]
+        return {"Name": self.name,
+                "Health": self.health,
+                "Hidden": self.hidden}
 
     def __init__(self, name: str, health: int = 100) -> None:
         self.name = name
@@ -14,9 +16,8 @@ class Animal:
     def getbitten(self) -> None:
         pass
 
-    def __iter__(self):
-        yield self.strings
-        yield "something else"
+    def __iter__(self) -> str:
+        return self.__str__
 
 
 class Carnivore(Animal):
@@ -27,12 +28,6 @@ class Carnivore(Animal):
 class Herbivore(Animal):
     def hide(self) -> None:
         self.hidden = not self.hidden
-    
-    def getbitten(self) -> None:
-        if not self.hidden:
-            self.health -= 50
-            if self.health <= 0:
-                Animal.alive.remove(self)
 
     def getbitten(self) -> None:
         if not self.hidden:
