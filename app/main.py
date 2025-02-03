@@ -15,8 +15,8 @@ class Animal:
 
     def __repr__(self) -> str:
         return f"{{Name: {self.name}, " \
-               "Health: {self.health}, " \
-               "Hidden: {self.hidden}}}"
+               f"Health: {self.health}, " \
+               f"Hidden: {self.hidden}}}"
 
 
 class Carnivore(Animal):
